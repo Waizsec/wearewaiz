@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Loomatic';
+  src: url('./fonts/Loomattic.ttf') format('truetype');
+}
+
+.font-loomatic {
+  font-family: 'Loomatic';
+}
+
+* {
+  font-family: 'Gothic A1', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+:root {
+  background-color: #0F1110;
+}
+
+@keyframes animate-nav {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 50px;
+  }
+}
+
+
+@keyframes animate-nav-reverse {
+  from {
+    width: 50px;
+  }
+
+  to {
+    width: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-sidebar {
+  from {
+    transform: translate(100vw, 0);
+  }
+
+  to {
+    transform: translate(0vw, 0vh);
+  }
+}
+
+@keyframes animate-reverse-sidebar {
+  from {
+    transform: translate(0vw, 0);
+  }
+
+  to {
+    transform: translate(100vw, 0vh);
+  }
+}
+
+
+
+/* Applying the animation to an element */
+.animate-sidebar {
+  animation-name: animate-sidebar;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.animate-reverse-sidebar {
+  animation-name: animate-reverse-sidebar;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.animate-nav {
+  animation-name: animate-nav;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  background-color: #23A67A;
+}
+
+li:hover .animate-nav-hover {
+  display: block;
+  animation-name: animate-nav;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  background-color: #C7ACFB;
+}
+
+.animate-nav-side {
+  animation-name: animate-nav;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  background-color: white;
+}
+
+li:hover .animate-nav-hover-side {
+  display: block;
+  animation-name: animate-nav;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  background-color: white;
+}
+
+
+.animate-rotate {
+  animation: rotate 8s linear infinite;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.hidden-transition {
+  visibility: hidden;
+  transition: 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, rgba(15, 17, 16, 1), rgba(15, 17, 16, 0));
+}
+
+.smile-animate {
+  animation: draw 3s ease-in-out infinite;
+}
+
+.animate-smile-black {
+  animation: black 3s ease-in-out infinite;
+}
+
+@keyframes black {
+  0% {
+    top: 9vh;
+  }
+
+  10% {
+    top: 10vh;
+  }
+
+  30% {
+    top: 6vh;
+  }
+
+  50% {
+    top: 11vh;
+  }
+
+  70% {
+    top: 8vh;
+  }
+
+  90% {
+    top: 10vh;
+  }
+
+  100% {
+    top: 9vh;
+  }
+}
+
+
+@keyframes draw {
+  0% {
+    transform: translateY(0);
+  }
+
+  10% {
+    transform: translateY(-10px);
+  }
+
+  30% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  70% {
+    transform: translateY(0);
+  }
+
+  90% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.form {
+  position: relative;
+  overflow: hidden;
+}
+
+.form input {
+  color: #fff;
+  padding-top: 20px;
+  border: none;
+  background-color: transparent
+}
+
+.form label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.form label::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  transform: translateX(3vw);
+  transition: all 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+
+.form input:focus {
+  outline: none;
+}
+
+.form input:focus+.label-name .content-name,
+.form input:valid+.label-name .content-name {
+  transform: translateY(-3vw);
+  font-size: 0.95vw;
+  left: 0px;
+}
+
+.form input:focus+.label-name::after,
+.form input:valid+.label-name::after {
+  transform: translateX(0%);
+}
+
+.form input:focus+.label-name2 .content-name,
+.form input:valid+.label-name2 .content-name {
+  transform: translateY(-6vw);
+  font-size: 3vw;
+  left: 0px;
+}
+
+.form input:focus+.label-name2::after,
+.form input:valid+.label-name2::after {
+  transform: translateX(0%);
+}
